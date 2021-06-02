@@ -1,0 +1,35 @@
+{
+    "MODEL_NAME": "paraphrase-distilroberta-base-v1",
+    "MODEL_PATH": "../model",
+    "MODEL_DOWNLOAD": "True",
+    "CORPUS_TEXT_PATH": "../data/corpus_text.pkl",
+    "CORPUS_ENCODED_PATH": "../data/corpus_encoded.pkl",
+    "TRAIN":
+        {
+            "LOGGER_FORMAT": "%(asctime)s - %(message)s",
+            "LOGGER_DATE_FORMAT": "%Y-%m-%d %H:%M:%S",
+
+            "DATASET_PATH": "quora-IR-dataset",
+            "DATASET_CLASSIFICATION_PATH": "classification/train_pairs.tsv",
+            "DATASET_MINING_CORPUS_PATH": "duplicate-mining/dev_corpus.tsv",
+            "DATASET_MINING_DUPLICATES_PATH": "duplicate-mining/dev_duplicates.tsv",
+            "DATASET_INFORMATION_RETRIEVAL_QUERIES_PATH": "information-retrieval/dev-queries.tsv",
+            "DATASET_INFORMATION_RETRIEVAL_CORPUS_PATH": "information-retrieval/corpus.tsv",
+            "ZIP_SAVE_PATH": "quora-IR-dataset.zip",
+            "DATASET_DOWNLOAD_URL": "https://sbert.net/datasets/quora-IR-dataset.zip",
+
+            "BASE_MODEL_NAME": "stsb-distilbert-base",
+            "MODEL_SAVE_PATH": "output/training_multi-task-learning",
+            "NUM_EPOCHS": 10,
+            "WARMUP_STEPS": 1000,
+            "TRAIN_BATCH_SIZE": 64,
+            "DISTANCE_METRIC": "COSINE_DISTANCE",
+            "MARGIN": 0.5,
+
+            "MAX_DEV_SAMPLES": 10000,
+            "MAX_CORPUS_SIZE": 100000,
+
+            "EVALUATORS": ["CLASSIFICATION", "MINING", "INFORMATION_RETRIEVAL"]
+
+        }
+}
